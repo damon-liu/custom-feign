@@ -1,6 +1,6 @@
 server:
   # 表示，没有port参数，使用8081端口
-  port: ${port:808}
+  port: ${port:8080}
 payment:
   name: yhy
 spring:

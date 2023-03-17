@@ -31,7 +31,26 @@ public class PaymentController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Payment> payment(@PathVariable("id") Integer id) {
+    public Payment payment(@PathVariable("id") Integer id) {
+        String str = String.format("支付成功，payment{port:%s}{paymentName:%s}", port, paymentName);
+        Payment payment = new Payment(id, str);
+        System.out.println("str: " +str);
+        return payment;
+    }
+
+    @GetMapping("/info/{id}")
+    public Payment paymentInfo(@PathVariable("id") Integer id) {
+        String str = String.format("支付成功，payment{port:%s}{paymentName:%s}", port, paymentName);
+        Payment payment = new Payment(id, str);
+        System.out.println("str: " +str);
+        // 故意报错，尝试降级
+        int i = 0;
+        int j = 1/i;
+        return payment;
+    }
+
+    @GetMapping("/entity/{id}")
+    public ResponseEntity<Object> paymentEntity(@PathVariable("id") Integer id) {
         String str = String.format("支付成功，payment{port:%s}{paymentName:%s}", port, paymentName);
         Payment payment = new Payment(id, str);
         System.out.println("str: " +str);
