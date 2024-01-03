@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Payment {
 
+
     /**
      * 订单编号
      */
